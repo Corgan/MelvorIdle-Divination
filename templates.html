@@ -1,0 +1,30 @@
+<template id="divination-page-component">
+  <div class="content d-none" id="divination-container">
+    <div class="skill-info">
+      <div class="block block-rounded" id="skill-header-divination:Divination">
+        <div class="progress active mb-1 border border-top border-1x border-dark" style="height: 8px">
+          <div class="progress-bar bg-info" id="skill-progress-bar-divination:Divination" role="progressbar"
+            style="width: 0%;"></div>
+        </div>
+        <div class="block-header text-center pt-0 pb-0">
+          <ul class="nav-main nav-main-horizontal nav-main-horizontal-override font-size-xs w-100">
+            <li class="m-1" style="min-width: 45%;">
+              <span class="font-w600">
+                <lang-string lang-id="MENU_TEXT_SKILL_LEVEL"></lang-string>
+              </span>
+              <span class="p-1 bg-success rounded font-w600" id="skill-progress-level-divination:Divination">1 / 99</span>
+            </li>
+            <li class="m-1" style="min-width: 45%">
+              <span class="font-w600">
+                <lang-string lang-id="MENU_TEXT_SKILL XP"></lang-string>
+              </span>
+              <span class="p-1 bg-info rounded font-w600" id="skill-progress-xp-divination:Divination">1 / 99</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="divination-wisps-container" class="row row-deck">
+    </div>
+  </div>
+</template>

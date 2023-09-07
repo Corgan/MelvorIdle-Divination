@@ -1,0 +1,4 @@
+{
+  "namespace": "divination",
+  "setup": "setup.mjs"
+}
