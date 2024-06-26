@@ -2,9 +2,8 @@ const { loadModule } = mod.getContext(import.meta);
 
 const { DivinationPageUIComponent } = await loadModule('src/components/divination.mjs');
 
-class DivinationWispMenu extends ContainedComponent {
+class DivinationWispMenu {
     constructor(wisp, divination) {
-        super();
         this.wisp = wisp;
         this.divination = divination;
         this.container = createElement('div', {
@@ -40,19 +39,28 @@ class DivinationWispMenu extends ContainedComponent {
         }));
         this.progressBar = topBlock.appendChild(createElement('div', {
             classList: ['progress', 'active']
-        })).appendChild(createElement('div', {
-            classList: ['progress-bar', 'bg-woodcutting'],
-            attributes: [['role', 'progressbar'], ['style', 'width: 0%;'], ['aria-valuenow', '0'], ['aria-valuemin', '0'], ['aria-valuemax', '100'], ],
-        }));
+        })).appendChild(createElement('progress-bar'));
         const masteryContainer = createElement('div', {
             classList: ['block-content'],
             parent: this.button
         });
-        this.mastery = new MasteryDisplay();
-        this.mastery.classList.add('mastery-8');
-        masteryContainer.appendChild(this.mastery);
-        this.mastery.setMastery(this.divination, wisp);
+        //this.mastery = new MasteryDisplay();
+        //this.mastery.classList.add('mastery-8');
+        //masteryContainer.appendChild(this.mastery);
+        //this.mastery.setMastery(this.divination, wisp);
         document.getElementById('divination-wisps-container').append(this.container);
+    }
+    show() {
+        showElement(this.container);
+    }
+    hide() {
+        hideElement(this.container);
+    }
+    invisible() {
+        this.container.classList.add('invisible');
+    }
+    visible() {
+        this.container.classList.remove('invisible');
     }
     localize() {
         this.harvestText.textContent = 'Harvest';
@@ -202,6 +210,10 @@ export class Divination extends SkillWithMastery {
 
     getWispMultiplier(wisp) {
         return 1;
+    }
+
+    isMasteryActionUnlocked(action) {
+        return this.isBasicSkillRecipeUnlocked(action);
     }
 
     start() {
