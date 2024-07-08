@@ -8,7 +8,7 @@ export async function setup({ characterStorage, gameData, patch, loadTemplates, 
     game.divination = game.registerSkill(game.registeredNamespaces.getNamespace('divination'), Divination); // Register skill
 
     console.log("Registering Divination Data");
-    await gameData.addPackage('data.json'); // Add skill data (page + sidebar, skillData)
+    await gameData.addPackage('data/data.json'); // Add skill data (page + sidebar, skillData)
 
     console.log('Registered Divination Data.');
 
